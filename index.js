@@ -4,6 +4,9 @@ exports.handler = (event, context, callback) => {
     currentTime.setTimezone("America/Los_Angeles");
     callback(null, {
         statusCode: '200',
+        headers: {
+            "X-Custom-Header" : "my custom header value"
+        },
         body: JSON.stringify({ "time": currentTime.toString() }),
     });
 };
